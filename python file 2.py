@@ -4,15 +4,8 @@ Type "help", "copyright", "credits" or "license()" for more information.
 import matplotlib.pyplot as pl
 import numpy as np
 import pandas as pd
-#reding the dat from URLlink
-url = https://raw.githubusercontent.com/AdiPersonalWorks/Random/master/student_scores%20-%20student_scores.csv
-SyntaxError: invalid decimal literal
+#reading the data from URLlink
 url = "https://raw.githubusercontent.com/AdiPersonalWorks/Random/master/student_scores%20-%20student_scores.csv"
-data1 = pl.read_csv(url)
-Traceback (most recent call last):
-  File "<pyshell#7>", line 1, in <module>
-    data1 = pl.read_csv(url)
-AttributeError: module 'matplotlib.pyplot' has no attribute 'read_csv'
 data1 = pd.read_csv (url)
 print ("Data imported successfully")
 Data imported successfully
@@ -44,8 +37,6 @@ data1.head(25)
 23    6.9      76
 24    7.8      86
 #plotting hours nd scores to determine a relationship
-data1.plot (x= 'Hours', y= 'Scores'), style = 'o')
-SyntaxError: unmatched ')'
 data1.plot (x= 'Hours', y= 'Scores', style= 'o')
 <AxesSubplot:xlabel='Hours'>
 pl.title ('Hours Vs Scores')
@@ -54,35 +45,13 @@ pl.xlabel ('Hours')
 Text(0.5, 0, 'Hours')
 pl.ylabel ('Scores')
 Text(0, 0.5, 'Scores')
-ml.show()
-Traceback (most recent call last):
-  File "<pyshell#17>", line 1, in <module>
-    ml.show()
-NameError: name 'ml' is not defined. Did you mean: 'pl'?
 pl.show()
-#values of slope and intercept
-#intercept
-print("intercept:", regressor.intercept_)
-Traceback (most recent call last):
-  File "<pyshell#21>", line 1, in <module>
-    print("intercept:", regressor.intercept_)
-NameError: name 'regressor' is not defined
 #positive relationship between hours and scores
 #preparing data for regression
 #dividing data into attributes and labels or input and output
-x = datat1.iloc[:, :-1].values
-Traceback (most recent call last):
-  File "<pyshell#25>", line 1, in <module>
-    x = datat1.iloc[:, :-1].values
-NameError: name 'datat1' is not defined. Did you mean: 'data1'?
 x = data1.iloc[:, :-1].values
 y = data1.iloc[:, 1].values
 #splitting data into training and test sets using Scikit Learn's built-in train_test_split() method
-from sklearn.model_selection import train_test_split
-Traceback (most recent call last):
-  File "<pyshell#29>", line 1, in <module>
-    from sklearn.model_selection import train_test_split
-ModuleNotFoundError: No module named 'sklearn'
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2, random_state=0)
 #training the algorithm for regression
@@ -93,20 +62,10 @@ LinearRegression()
 print("Training Complete")
 Training Complete
 #plotting regression line
-line = regressor.coef_*X+regressor.intercept_
-Traceback (most recent call last):
-  File "<pyshell#38>", line 1, in <module>
-    line = regressor.coef_*X+regressor.intercept_
-NameError: name 'X' is not defined. Did you mean: 'x'?
 line = regressor.coef_*x+regressor.intercept_
 #plotting test data
 pl.scatter(x,y)
 <matplotlib.collections.PathCollection object at 0x00000222180C2770>
-pl.plot(X, line);
-Traceback (most recent call last):
-  File "<pyshell#42>", line 1, in <module>
-    pl.plot(X, line);
-NameError: name 'X' is not defined. Did you mean: 'x'?
 pl.plot(x, line);
 [<matplotlib.lines.Line2D object at 0x00000222180C2D40>]
 pl.show()
@@ -128,11 +87,6 @@ print(x_test)
 #predicting the scores
 y_prd= regressor.predict(x_test)
 #comparing actual values and predicted values
-df= pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
-Traceback (most recent call last):
-  File "<pyshell#56>", line 1, in <module>
-    df= pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
-NameError: name 'y_pred' is not defined. Did you mean: 'y_prd'?
 df= pd.DataFrame({'Actual': y_test, 'Predicted': y_prd})
 df
    Actual  Predicted
@@ -155,11 +109,6 @@ predicted= regressor.predict(hours)
 print('Predicted Value', predicted)
 Predicted Value [16.88414476 33.73226078 75.357018   26.79480124 60.49103328]
 hours= [[9.25]]
-own_prd = regresor.predict(hours)
-Traceback (most recent call last):
-  File "<pyshell#70>", line 1, in <module>
-    own_prd = regresor.predict(hours)
-NameError: name 'regresor' is not defined. Did you mean: 'regressor'?
 own_prd = regressor.predict(hours)
 print("Number of hours = {}".format(hours))
 Number of hours = [[9.25]]
